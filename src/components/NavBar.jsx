@@ -58,7 +58,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="max-w-sm  lg:mb-0">
-          <img src={dogeImage} alt="Doge Character" className="" />
+          <img src={dogeImage} alt="Doge Character" className=" mr-50" />
         </div>
       </div>
     </div>
