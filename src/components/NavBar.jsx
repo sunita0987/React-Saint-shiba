@@ -1,67 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import bgImage from "../assets/images/bg.png";
-import dogeImage from "../assets/images/sibha.png";
+
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div
-      className="h-screen bg-cover bg-center object-cover"
+     <div
+      className="h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* <div className="absolute inset-0 bg-grad from-[#F06500] to-transparent"></div> */}
-
-      <nav className="flex items-center justify-between py-3 px-3 bg-[#000000BF]  text-[#ffffff]">
-        <img src={logo} alt="logo" className="w-30" />
-        <ul className="hidden md:flex space-x-6 text-sm ">
-          <li>
-            <a href="#" className="hover:text-[#F06500]">
+    <nav className="bg-black/90 text-[#ffffff] fixed w-full z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          <div className="flex-shrink-0 flex items-center">
+            <img src={logo} alt="Logo" className="" />
+          </div>
+          <div className="hidden md:flex space-x-8 items-center">
+            <a href="#" className="hover:text-[#FFA800] transition">
               Home
             </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-[#F06500]">
+            <a href="#" className="hover:text-[#FFA800] transition">
               About
             </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-[#F06500]">
+            <a href="#" className="hover:text-[#FFA800] transition">
               Tokenomics
             </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-[#F06500]">
+            <a href="#" className="hover:text-[#FFA800] transition">
               How to buy
             </a>
-          </li>
-          <li>
-            <a href="#" className="hover:text-[#F06500]">
+            <a href="#" className="hover:text-[#FFA800] transition">
               FAQ
             </a>
-          </li>
-        </ul>
-        <button className=" mr-30 text-[#ffffff] px-4 py-2 font-bold rounded-3xl text-sm bg-gradient-to-r from-[#FFA800] to-[#F06500] cursor-pointer hover:bg-orange-600 ">
-          Connect Wallet
-        </button>
-      </nav>
-      <div className="container mx-auto px-6 relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between">
-        <div className="max-w-xl mb-20 ml-20">
-          <h1 className="text-7xl font-bold  text-[#ffffff]">
-            Accumsan <br /> ut orci vitae
-          </h1>
-          <p className="mt-4 text-base text-[#FFFFFF] w-[400px]">
-            Velit eget sit nibh fringilla risus ullamcorper malesuada. Morbi
-            nulla suscipit dolor, volutpat quam at urna donec rutrum. In
-            vulputate congue arcu in et.
-          </p>
-          <button className="mt-6 px-6 py-2 bg-gradient-to-r from-[#FFA800] to-[#F06500] rounded-xl text-[#ffffff] font-semibold cursor-pointer">
+            <button className="bg-gradient-to-r from-[#FFA800] to-[#F06500] px-4 py-2 cursor-pointer rounded-full font-medium shadow hover:opacity-90 transition">
+              Connect Wallet
+            </button>
+          </div>
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="focus:outline-none"
+            >
+              {isOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="md:hidden bg-black/90 px-4 pt-2 pb-4 space-y-2">
+          <a href="#" className="block hover:text-[#FFA800] transition">
+            Home
+          </a>
+          <a href="#" className="block hover:text-[#FFA800] transition">
+            About
+          </a>
+          <a href="#" className="block hover:text-[#FFA800] transition">
+            Tokenomics
+          </a>
+          <a href="#" className="block hover:text-[#FFA800] transition">
+            How to buy
+          </a>
+          <a href="#" className="block hover:text-[#FFA800] transition">
+            FAQ
+          </a>
+          <button className="w-full bg-gradient-to-r from-[#FFA800] to-[#F06500] px-4 py-2 rounded-full font-medium shadow hover:opacity-90 transition">
             Connect Wallet
           </button>
         </div>
-        <div className="max-w-sm  lg:mb-0">
-          <img src={dogeImage} alt="Doge Character" className=" mr-50" />
-        </div>
-      </div>
+      )}
+    </nav>
     </div>
   );
 };
+
 export default Navbar;

@@ -1,21 +1,15 @@
-import { useState } from 'react'
-import React from 'react'
-import './App.css'
-import NavBar from "./components/NavBar"
-import HeroSection from './components/HeroSection'
-import HowToBuy from './components/HowToBuy'
-
+import { useState } from "react";
+import React from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
-
-
   return (
     <>
-   <NavBar/>
-   <HeroSection/>
-   <HowToBuy/>
+      <NavBar />
+     
     </>
-  )
+  );
 }
 
-export default App
+export default App;
